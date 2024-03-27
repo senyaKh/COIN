@@ -60,8 +60,8 @@ const CoinTable: React.FC<CoinTableProps> = () => {
 								height={30}
 								style={{ borderRadius: '50%' }}
 								onError={(e) => {
-									e.currentTarget.onerror = null; // Удаляем обработчик ошибок, чтобы избежать бесконечного цикла
-									e.currentTarget.src = '/favicon.ico'; // Устанавливаем путь к вашей заглушке
+									e.currentTarget.onerror = null;
+									e.currentTarget.src = '/favicon.ico';
 								}}
 							/>
 						),
