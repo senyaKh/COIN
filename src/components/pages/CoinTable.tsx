@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import { fetchCoins } from '../../services/api/coincap';
 import { Coin } from '../../services/types';
-
+import AddButton from '../ui/AddButton';
 interface CoinTableProps {}
 
 const CoinTable: React.FC<CoinTableProps> = () => {
@@ -38,7 +38,9 @@ const CoinTable: React.FC<CoinTableProps> = () => {
 	const getLogoUrl = (symbol: string) => {
 		return `https://www.cryptocdn.co/icons/colored/${symbol.toLowerCase()}.svg`;
 	};
-
+	const handleAdd = (coinId: string) => {
+		console.log(`Add coin with ID: ${coinId}`);
+	};
 	return (
 		<div onScroll={handleScroll} style={{ maxHeight: '100vh' }}>
 			<Table
@@ -88,6 +90,13 @@ const CoinTable: React.FC<CoinTableProps> = () => {
 						dataIndex: 'changePercent24Hr',
 						key: 'changePercent24Hr',
 						render: (change: any) => `${Number(change).toFixed(2)}%`,
+					},
+					{
+						title: 'Action',
+						key: 'action',
+						render: (text: string, record: Coin) => (
+							<AddButton coinId={record.id} onAdd={handleAdd} />
+						),
 					},
 				]}
 				dataSource={coins}
