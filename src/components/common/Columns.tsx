@@ -1,6 +1,7 @@
 import React from 'react';
 import { Coin } from '../../services/types';
 import AddButton from '../ui/AddButton';
+import { formatPrice, formatPercentage } from '../../utils/formatPrice';
 const handleAdd = (coinId: string) => {
    console.log(`Add coin with ID: ${coinId}`);
 };
@@ -59,11 +60,3 @@ export const columns = [
     ),
  },
 ];
-
-function formatPrice(price: number): string {
- return Number(price).toFixed(2);
-}
-
-function formatPercentage(percentage: number): string {
- return Number(percentage).toFixed(2);
-}
