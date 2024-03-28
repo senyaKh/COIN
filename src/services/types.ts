@@ -23,4 +23,10 @@ export interface InputProps {
 	value: string;
 	styles?: string; 
  }
- 
+ export interface CoinTableBodyProps {
+	coins: Coin[];
+	loading: boolean;
+	totalCoins: number;
+	currentPage: number;
+	setCurrentPage: (page: number) => void;
+ }

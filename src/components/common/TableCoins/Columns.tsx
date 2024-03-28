@@ -1,6 +1,6 @@
 import React from 'react';
 import { Coin } from '../../../services/types';
-import AddButton from '../../ui/AddButton';
+import AddButton from './AddButton';
 import { formatPrice, formatPercentage } from '../../../utils/formatPrice';
 const handleAdd = (coinId: string) => {
    console.log(`Add coin with ID: ${coinId}`);
@@ -56,10 +56,10 @@ export const columns = [
    sorter: (a: Coin, b: Coin) => a.changePercent24Hr - b.changePercent24Hr,
  },
  {
-    title: 'Action',
-    key: 'action',
-    render: (text: string, record: Coin) => (
-      <AddButton coinId={record.id} onAdd={handleAdd} />
-    ),
+  title: 'Action',
+  key: 'action',
+  render: (text: string, record: Coin) => (
+     <AddButton coinId={record.id} onClick={handleAdd} />
+  ),
  },
 ];
