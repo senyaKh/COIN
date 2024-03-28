@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { fetchCoinById } from '@/services/api/fetchCoinsById'; 
 import { GetServerSidePropsContext } from 'next';
 import { CoinPageProps } from '@/utils/idCoinTypes';
-
+import Image from 'next/image';
 const CoinPage: React.FC<CoinPageProps> = ({ coin }) => {
 	const router = useRouter();
 	if (router.isFallback) {
@@ -17,7 +17,7 @@ const CoinPage: React.FC<CoinPageProps> = ({ coin }) => {
 	return (
 		 <div>
 			 <h1>{coinData.name}</h1>
-			 <img src={`https://www.cryptocdn.co/icons/colored/${coinData.symbol.toLowerCase()}.svg`} alt="coin logo" width={30} height={30} style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }} onError={(e) => {
+			 <Image src={`https://www.cryptocdn.co/icons/colored/${coinData.symbol.toLowerCase()}.svg`} alt="coin logo" width={30} height={30} style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }} onError={(e) => {
 				 e.currentTarget.onerror = null;
 				 e.currentTarget.src = '/images/errorLogo.png';
 			 }} />

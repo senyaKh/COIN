@@ -2,6 +2,7 @@ import React from 'react';
 import { Coin } from '../../../utils/types';
 import AddButton from './AddButton';
 import { formatPrice, formatPercentage } from '../../../utils/formatPrice';
+import Image from 'next/image';
 const handleAdd = (coinId: string) => {
    console.log(`Add coin with ID: ${coinId}`);
 };
@@ -16,7 +17,7 @@ export const columns = [
     dataIndex: 'logoUrl',
     key: 'logoUrl',
     render: (logoUrl: string) => (
-      <img
+      <Image
         src={logoUrl}
         alt='logo'
         width={30}
