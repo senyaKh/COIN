@@ -1,7 +1,7 @@
 import React from 'react';
-import { Coin } from '../../services/types';
-import AddButton from '../ui/AddButton';
-import { formatPrice, formatPercentage } from '../../utils/formatPrice';
+import { Coin } from '../../../services/types';
+import AddButton from '../../ui/AddButton';
+import { formatPrice, formatPercentage } from '../../../utils/formatPrice';
 const handleAdd = (coinId: string) => {
    console.log(`Add coin with ID: ${coinId}`);
 };
