@@ -1,0 +1,27 @@
+.input {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	transition: 0.3s;
+ }
+ 
+ .input:focus {
+	border-color: #0070f3;
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+ }
+ 
+ .input::placeholder {
+	color: #888;
+ }
+ 
+ .input:disabled {
+	background-color: #ddd;
+	color: #aaa;
+ }
+ 
