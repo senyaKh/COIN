@@ -1,7 +1,7 @@
 export function formatPrice(price: string): string {
   const priceNumber = parseFloat(price);
   if (isNaN(priceNumber)) return '';
-
+  if (priceNumber < 0.01) return `${(priceNumber * 1000).toFixed(2)}e^6`;
   if (priceNumber < 1000) return `${priceNumber.toFixed(2)}`; 
 
   const suffixes = ['', 'k', 'm', 'b', 't'];
