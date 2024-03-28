@@ -21,10 +21,10 @@ export const columns = [
         alt='logo'
         width={30}
         height={30}
-        style={{ borderRadius: '50%' }}
+        style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }}
         onError={(e) => {
           e.currentTarget.onerror = null;
-          e.currentTarget.src = '/favicon.ico';
+          e.currentTarget.src = '/images/errorLogo.png';
         }}
       />
     ),
