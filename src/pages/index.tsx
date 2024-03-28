@@ -16,7 +16,7 @@ const Home: React.FC = () => {
  }, []);
 	return (
 		<div>
-			<AlertModal title="Внимание!!!" message="Из-за проблем с бесплатными api для получения logo криптовалют, все логотипы монет для которых не нашелся логотип были заменены на ошибочный, данное лого предоставлено ниже" image="/images/errorLogo.png" visible={isModalVisible} onClose={handleClose} />
+			<AlertModal title="Внимание!!!" message="Из-за проблем с бесплатными api для получения logo криптовалют, все логотипы монет для которых не нашелся логотип были заменены на ошибочный, данное лого предоставлено ниже" image="/images/errorLogo.png" open={isModalVisible} onClose={handleClose} />
 			<CoinTable />
 		</div>
 	);

@@ -5,15 +5,15 @@ interface ModalProps {
  title: string;
  message: string;
  image?: string; 
- visible: boolean;
+ open: boolean;
  onClose: () => void;
 }
 
-const AlertModal: React.FC<ModalProps> = ({ title, message, image, visible, onClose }) => {
+const AlertModal: React.FC<ModalProps> = ({ title, message, image, open, onClose }) => {
  return (
     <Modal
       title={title}
-      visible={visible}
+      open={open}
       onCancel={onClose}
       footer={[
         <Button key="close" onClick={onClose}>
