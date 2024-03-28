@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coin } from '../../../services/types';
+import { Coin } from '../../../utils/types';
 import AddButton from './AddButton';
 import { formatPrice, formatPercentage } from '../../../utils/formatPrice';
 const handleAdd = (coinId: string) => {

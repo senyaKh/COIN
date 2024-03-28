@@ -1,12 +1,12 @@
 import React from 'react';
 import { Table } from 'antd';
-import { Coin, CoinTableBodyProps } from '../../../services/types';
+import { Coin, CoinTableBodyProps } from '../../../utils/types';
 import { columns } from './Columns';
 import { useRouter } from 'next/router';
 export const CoinTableBody: React.FC<CoinTableBodyProps> = ({ coins, loading, totalCoins, currentPage, setCurrentPage }) => {
   const router = useRouter();
   const handleRow = (record: Coin) => {
-    return {
+  return {
       onClick: () => router.push(`/coin/${record.id}`),
     };
  };

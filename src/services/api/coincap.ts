@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Coin } from '../types';
+import { Coin } from '../../utils/types';
 
 const API_URL = 'https://api.coincap.io/v2';
 
