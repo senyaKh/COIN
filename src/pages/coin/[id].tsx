@@ -1,9 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { fetchCoinById } from '@/services/api/fetchCoinsById'; 
 import { GetServerSidePropsContext } from 'next';
+import CoinDetails from '@/components/common/CoinPage/CoinDetails';
+import PriceChart from '@/components/common/CoinPage/PriceChart';
+import AddButton from '@/components/common/TableCoins/AddButton';
+import { fetchCoinById } from '@/services/api/fetchCoinsById'; 
 import { CoinPageProps } from '@/utils/idCoinTypes';
-import Image from 'next/image';
 const CoinPage: React.FC<CoinPageProps> = ({ coin }) => {
 	const router = useRouter();
 	if (router.isFallback) {
@@ -16,19 +18,10 @@ const CoinPage: React.FC<CoinPageProps> = ({ coin }) => {
  
 	return (
 		 <div>
-			 <h1>{coinData.name}</h1>
-			 <Image src={`https://www.cryptocdn.co/icons/colored/${coinData.symbol.toLowerCase()}.svg`} alt="coin logo" width={30} height={30} style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }} onError={(e) => {
-				 e.currentTarget.onerror = null;
-				 e.currentTarget.src = '/images/errorLogo.png';
-			 }} />
-			 <p>Symbol: {coinData.symbol}</p>
-			 <p>Rank: {coinData.rank}</p>
-			 <p>Supply: {coinData.supply}</p>
-			 <p>Price in USD: ${coinData.priceUsd}</p>
-			 <p>Market Cap in USD: ${coinData.marketCapUsd}</p>
-			 <p>Max Supply: {coinData.maxSupply}</p>
-			 <button onClick={() => console.log('Add to portfolio')}>Add</button>
-			 <button onClick={() => router.back()}>Back</button>
+			 <CoinDetails coin={coin} />
+			 <PriceChart coinId={coinData.id} />
+			 <button onClick={() => router.push('/', undefined, { shallow: true })}>Back</button>
+			 <AddButton coinId={coinData.id} onClick={(coinId) => console.log(coinId)}/>
 		 </div>
 	);
 };

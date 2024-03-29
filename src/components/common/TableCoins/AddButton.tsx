@@ -1,17 +1,19 @@
 import React from 'react';
-import Styles from '@/styles/ui/AddButton.module.scss';
-
 interface AddButtonProps {
  coinId: string;
- onClick: (coinId: string) => void; 
+ onClick: (coinId: string) => void;
+ className?: string; 
 }
 
-const AddButton: React.FC<AddButtonProps> = ({ coinId, onClick }) => {
+const AddButton: React.FC<AddButtonProps> = ({ coinId, onClick, className }) => {
  return (
-    <button className={`${Styles.addButton} addButton`} onClick={(event) => {
-      event.stopPropagation(); 
-      onClick(coinId);
-    }}>
+    <button
+      className={`${className}`} 
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick(coinId);
+      }}
+    >
       Add
     </button>
  );
