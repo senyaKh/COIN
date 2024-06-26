@@ -3,3 +3,4 @@ return (
 	<div>Error</div>
 )
 }
+// заглушка
