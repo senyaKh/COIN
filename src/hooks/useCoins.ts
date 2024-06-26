@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { fetchCoins } from '@/services/api/coincap';
-import { Coin } from '@/services/types';
+import { Coin } from '@/utils/types';
 
 export const useCoins = (currentPage: number) => {
  const [coins, setCoins] = useState<Coin[]>([]);
  const [loading, setLoading] = useState<boolean>(true);
  const [totalCoins, setTotalCoins] = useState<number>(0);
 const getLogoUrl = (symbol: string) => {
-    return `https://www.cryptocdn.co/icons/colored/${symbol.toLowerCase()}.svg`;
+    return `/icons/color/${symbol.toLowerCase()}.svg`;
  };
  useEffect(() => {
     const loadCoins = async () => {

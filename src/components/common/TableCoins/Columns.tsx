@@ -1,7 +1,9 @@
 import React from 'react';
-import { Coin } from '../../../services/types';
-import AddButton from '../../ui/AddButton';
+import { Coin } from '../../../utils/types';
+import AddButton from './AddButton';
 import { formatPrice, formatPercentage } from '../../../utils/formatPrice';
+import Image from 'next/image';
+import Styles from '@/styles/components/AddButton.module.scss';
 const handleAdd = (coinId: string) => {
    console.log(`Add coin with ID: ${coinId}`);
 };
@@ -16,15 +18,15 @@ export const columns = [
     dataIndex: 'logoUrl',
     key: 'logoUrl',
     render: (logoUrl: string) => (
-      <img
+      <Image
         src={logoUrl}
         alt='logo'
         width={30}
         height={30}
-        style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center' }}
+        style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center', width: '30px', height: '30px' }}
         onError={(e) => {
           e.currentTarget.onerror = null;
-          e.currentTarget.src = '/images/errorLogo.png';
+          e.currentTarget.src = '/images/errorLogo.svg';
         }}
       />
     ),
@@ -56,10 +58,10 @@ export const columns = [
    sorter: (a: Coin, b: Coin) => a.changePercent24Hr - b.changePercent24Hr,
  },
  {
-    title: 'Action',
-    key: 'action',
-    render: (text: string, record: Coin) => (
-      <AddButton coinId={record.id} onAdd={handleAdd} />
-    ),
+  title: 'Action',
+  key: 'action',
+  render: (text: string, record: Coin) => (
+     <AddButton coinId={record.id} onClick={handleAdd}  className={Styles.addButton}/>
+  ),
  },
 ];
