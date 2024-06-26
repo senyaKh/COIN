@@ -7,7 +7,7 @@ export const useCoins = (currentPage: number) => {
  const [loading, setLoading] = useState<boolean>(true);
  const [totalCoins, setTotalCoins] = useState<number>(0);
 const getLogoUrl = (symbol: string) => {
-    return `https://www.cryptocdn.co/icons/colored/${symbol.toLowerCase()}.svg`;
+    return `/icons/color/${symbol.toLowerCase()}.svg`;
  };
  useEffect(() => {
     const loadCoins = async () => {
